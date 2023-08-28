@@ -1,0 +1,15 @@
+version: '3'
+services:
+  server:
+    build: 
+      context: "./server"
+      args:
+        - NODE_ENV=production
+    command: npm run start:prod
+  client:
+    build: 
+      context: "./client"
+      args:
+        - NODE_ENV=production
+    command: 
+      sh -c "npm run build && npm start"
